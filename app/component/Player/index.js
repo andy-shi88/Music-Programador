@@ -5,6 +5,7 @@ import {
   Button,
   View
 } from 'react-native';
+import GetTime from '../../service/GetTime';
 
 export default class PlayerScreen extends Component {
   static navigationOptions = {
@@ -13,7 +14,7 @@ export default class PlayerScreen extends Component {
   render() {
     return (
       <View>
-        
+      
       </View>
     );
   }
