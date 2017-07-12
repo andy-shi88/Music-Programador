@@ -12,7 +12,6 @@ import {
 
 export default class PlayerScreen extends Component {
 
-
   constructor(props) {
     super(props)
     this.state = {
@@ -33,7 +32,6 @@ export default class PlayerScreen extends Component {
     AsyncStorage.getAllKeys((err, key) => {
       key.map((res, index) => {
         temp_playlists.push(res)
-
         AsyncStorage.getItem(res, (err,value) => {
             temp_songs.push(value)
         })

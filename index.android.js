@@ -12,7 +12,7 @@ import {
   View
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import ButtonPlay from './app/component/ButtonPlay' 
+import ButtonPlay from './app/component/ButtonPlay'
 import Player from './app/component/Player'
 export default class Home extends Component {
    static navigationOptions = {
