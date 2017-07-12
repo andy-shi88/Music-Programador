@@ -14,6 +14,7 @@ import {
 import { StackNavigator } from 'react-navigation';
 import ButtonPlay from './app/component/ButtonPlay'
 import Player from './app/component/Player'
+import Schedule from './app/component/Scheduling'
 export default class Home extends Component {
    static navigationOptions = {
     title: 'Welcome',
@@ -50,6 +51,7 @@ const styles = StyleSheet.create({
 });
 const MusicProgramador = StackNavigator({
   Home: { screen: Home },
-  Player:{ screen:Player}
+  Player:{ screen:Player},
+  Schedule:{ screen:Schedule}
 });
 AppRegistry.registerComponent('MusicProgramador', () => MusicProgramador);
