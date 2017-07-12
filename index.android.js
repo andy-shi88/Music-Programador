@@ -12,7 +12,7 @@ import {
   View
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import Oauth from './app/component/Auth' 
+import Oauth from './app/component/ButtonPlay' 
 import Player from './app/component/Player'
 export default class Home extends Component {
    static navigationOptions = {
