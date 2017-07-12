@@ -1,2 +1,2 @@
 # Music-Programador
-Scheduler for music connected to soundcloud.
+Scheduler for music connected to youtube.
