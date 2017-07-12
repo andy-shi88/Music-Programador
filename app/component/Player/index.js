@@ -30,7 +30,7 @@ export default class PlayerScreen extends Component {
 
   componentWillMount() {
     let temp_playlists = []
-    let temp_songs = [] 
+    let temp_songs = []
     AsyncStorage.getAllKeys((err, key) => {
       key.map((res, index) => {
         temp_playlists.push(res)
@@ -44,13 +44,13 @@ export default class PlayerScreen extends Component {
         song_uri: temp_songs
       })
     })
-    
+
   }
 
   addNewPlayList() {
     let name = this.state.playlist_name
     let uri = this.state.music_url
-    AsyncStorage.setItem(name, uri) 
+    AsyncStorage.setItem(name, uri)
     let temp_songs = this.state.song_uri
     let temp = this.state.playlist
     console.log(temp_songs, 'ssssmsdksmndksnkscmn')
@@ -69,16 +69,16 @@ export default class PlayerScreen extends Component {
     return (
       <View>
         <Text>Playlist name</Text>
-        <TextInput 
-          onChangeText={(text) => this.setState({playlist_name: text})} 
+        <TextInput
+          onChangeText={(text) => this.setState({playlist_name: text})}
           value={this.state.playlist_name}/>
         <Text>Link</Text>
-        <TextInput 
-          onChangeText={(text) => this.setState({music_url: text})} 
+        <TextInput
+          onChangeText={(text) => this.setState({music_url: text})}
           value={this.state.music_url}/>
-        <Button 
+        <Button
           title='Add new playlist'
-          onPress={() => this.addNewPlayList() } /> 
+          onPress={() => this.addNewPlayList() } />
         <Text style={styles.playlistLabel}>Playlist</Text>
         <ScrollView>
           {
@@ -96,7 +96,6 @@ export default class PlayerScreen extends Component {
               )
             })
           }
-
         </ScrollView>
       </View>
     );

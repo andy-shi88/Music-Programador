@@ -25,8 +25,14 @@ export default class ButtonPlay extends Component {
         color="#841584"
         accessibilityLabel="Learn more about this purple button"
         />
+        <Button
+         onPress={() => navigate('WebViewPlayer')}
+         title="WebViewPlayer"
+         color="#841584"
+         accessibilityLabel="Learn more about this purple button"
+         />
       </View>
-      
+
     );
   }
 }
