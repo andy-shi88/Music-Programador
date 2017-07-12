@@ -22,11 +22,14 @@ export default class WebViewPlayer extends Component {
     const { navigate } = this.props.navigation;
     AsyncStorage.getItem(GetTime(), (err, val) => {
       if (!val) {
-        // navigate('Home')
+        navigate('Home')
         ToastAndroid.showWithGravity('Your playlist in this time is empty', ToastAndroid.SHORT, ToastAndroid.CENTER);
       } else {
-        this.setState({
-          playlist_url: val
+        AsyncStorage.getItem(val, (err, val) => {
+          console.log("==============val=============", val);
+          this.setState({
+            playlist_url: val
+          })
         })
       }
     });
