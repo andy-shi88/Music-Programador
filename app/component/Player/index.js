@@ -16,10 +16,12 @@ export default class PlayerScreen extends Component {
     super(props)
     this.state = {
       music_url: '',
+      playlist_name: '',
       playlist: null,
       song_uri: null,
       selected_playlist: 0
     }
+    this.addNewPlayList = this.addNewPlayList.bind(this)
   }
 
   static navigationOptions = {
@@ -46,44 +48,39 @@ export default class PlayerScreen extends Component {
   }
 
   addNewPlayList() {
-    let name = this.state.music_url
-    AsyncStorage.setItem(name, '') 
-    let temp = []
-    AsyncStorage.getAllKeys((err, key) => {
-      key.map((res, index) => {
-        temp.push(res)
-      })
-      this.setState({
-        music_url: '',
-        playlist: temp
-      })
-    })
-  }
+    let name = this.state.playlist_name
+    let uri = this.state.music_url
+    AsyncStorage.setItem(name, uri) 
+    let temp_songs = this.state.playlist
+    let temp = this.state.song_uri
+    console.log(temp_songs, 'ssssmsdksmndksnkscmn')
+    temp_songs.push(uri)
+    temp.push(name)
 
-  addNewMusicToPlaylist() {
-    let key = this.state.playlist[this.state.selected_playlist]
-    let newMusicList = ''
-    AsyncStorage.getItem(key, (err, value) => {
-      newMusicList = this.state.music_url 
-      AsyncStorage.setItem(key, newMusicList)
-      let temp_songs_uri = this.state.song_uri
-      temp_songs_uri[this.state.selected_playlist] = newMusicList
-      this.setState({
-        song_uri: temp_songs_uri
-      })
+    console.log(temp, 'tempppp')
+
+    console.log(temp_songs, 'tempsoings')
+    this.setState({
+      music_url: '',
+      playlist_name: '',
+      playlist: temp,
+      song_uri: temp_songs
     })
   }
 
   render() {
     console.log(this.state.song_uri, 'songs uri')
+    console.log(this.state.playlist, 'playlists')
     return (
       <View>
+        <Text>Playlist name</Text>
         <TextInput 
           onChangeText={(text) => this.setState({music_url: text})} 
           value={this.state.music_url}/>
-        <Button 
-          title='Add to playlist'
-          onPress={() => this.addNewMusicToPlaylist()} /> 
+        <Text>Link</Text>
+        <TextInput 
+          onChangeText={(text) => this.setState({playlist_name: text})} 
+          value={this.state.playlist_name}/>
         <Button 
           title='Add new playlist'
           onPress={() => this.addNewPlayList() } /> 
