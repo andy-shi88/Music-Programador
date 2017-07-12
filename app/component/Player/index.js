@@ -3,7 +3,8 @@ import {
   StyleSheet,
   Text,
   Button,
-  View
+  View,
+  WebView
 } from 'react-native';
 
 export default class PlayerScreen extends Component {
@@ -13,8 +14,11 @@ export default class PlayerScreen extends Component {
   render() {
     return (
       <View>
-        
       </View>
+      <WebView
+        source={{uri: "https://youtu.be/wauKnNi66xE?list=WL"}}
+        style={{marginTop:20}}
+      />
     );
   }
 }
