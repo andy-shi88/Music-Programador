@@ -12,7 +12,7 @@ import {
   View
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import Oauth from './app/component/Auth' 
+import ButtonPlay from './app/component/ButtonPlay' 
 import Player from './app/component/Player'
 export default class Home extends Component {
    static navigationOptions = {
@@ -24,7 +24,7 @@ export default class Home extends Component {
         <Text style={styles.welcome}>
           Welcome to MP, playin music wisely!
         </Text>
-        <Oauth navigation = {this.props.navigation}/>
+        <ButtonPlay navigation = {this.props.navigation}/>
       </View>
     );
   }
