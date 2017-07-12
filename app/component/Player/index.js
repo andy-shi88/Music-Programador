@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { 
-    StyleSheet, 
-    Text, 
-    Button, 
+import {
+    StyleSheet,
+    Text,
+    Button,
     View,
     AsyncStorage
  } from 'react-native';
@@ -33,12 +33,12 @@ export default class PlayerScreen extends Component {
     setPlaylist = (arr) => {
         let keys = arr.map((res) => Object.keys(res))
         let getKeys = keys.map((res) => res[0])
-        let storages = arr.map((res,index) => 
+        let storages = arr.map((res,index) =>
                             keys[index].concat(`${res[keys[index]]}`))
         AsyncStorage.multiSet(storages,(err) => {
             this.getPlaylist(getKeys)
         })
-    }  
+    }
 	render() {
 		return (
 
