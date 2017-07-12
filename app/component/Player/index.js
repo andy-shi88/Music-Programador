@@ -51,15 +51,12 @@ export default class PlayerScreen extends Component {
     let name = this.state.playlist_name
     let uri = this.state.music_url
     AsyncStorage.setItem(name, uri) 
-    let temp_songs = this.state.playlist
-    let temp = this.state.song_uri
+    let temp_songs = this.state.song_uri
+    let temp = this.state.playlist
     console.log(temp_songs, 'ssssmsdksmndksnkscmn')
     temp_songs.push(uri)
     temp.push(name)
 
-    console.log(temp, 'tempppp')
-
-    console.log(temp_songs, 'tempsoings')
     this.setState({
       music_url: '',
       playlist_name: '',
@@ -69,18 +66,16 @@ export default class PlayerScreen extends Component {
   }
 
   render() {
-    console.log(this.state.song_uri, 'songs uri')
-    console.log(this.state.playlist, 'playlists')
     return (
       <View>
         <Text>Playlist name</Text>
         <TextInput 
-          onChangeText={(text) => this.setState({music_url: text})} 
-          value={this.state.music_url}/>
-        <Text>Link</Text>
-        <TextInput 
           onChangeText={(text) => this.setState({playlist_name: text})} 
           value={this.state.playlist_name}/>
+        <Text>Link</Text>
+        <TextInput 
+          onChangeText={(text) => this.setState({music_url: text})} 
+          value={this.state.music_url}/>
         <Button 
           title='Add new playlist'
           onPress={() => this.addNewPlayList() } /> 
