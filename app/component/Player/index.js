@@ -76,7 +76,6 @@ export default class PlayerScreen extends Component {
   }
 
   render() {
-    console.log(this.state.song_uri, '------------')
     return (
       <View>
         <TextInput 
@@ -88,11 +87,14 @@ export default class PlayerScreen extends Component {
         <Button 
           title='Add new playlist'
           onPress={() => this.addNewPlayList() } /> 
+        <Text style={styles.playlistLabel}>Playlist</Text>
         <ScrollView>
           {
             this.state.playlist && this.state.playlist.map((res, index) => {
               return(
                 <TouchableOpacity
+                  key={index}
+                  style={styles.playlist}
                   onPress={() => this.setState({selected_playlist: index})}
                 >
                   <Text>
@@ -108,3 +110,38 @@ export default class PlayerScreen extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+  playlist: {
+    color: '#ffffff',
+    paddingTop: 20,
+    paddingBottom: 20,
+    backgroundColor: '#acacac',
+    alignItems: 'center',
+    fontSize: 28,
+    marginTop: 5
+  },
+  playlistLabel: {
+    color: '#ffffff',
+    width: '100%',
+    alignSelf: 'center',
+    fontSize: 30,
+    backgroundColor: '#3c82f2'
+  }
+});
