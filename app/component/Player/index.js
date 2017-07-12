@@ -64,8 +64,7 @@ export default class PlayerScreen extends Component {
     let key = this.state.playlist[this.state.selected_playlist]
     let newMusicList = ''
     AsyncStorage.getItem(key, (err, value) => {
-      newMusicList = typeof value !== 'string' ? '' : value 
-      newMusicList = newMusicList + this.state.music_url + ', ' 
+      newMusicList = this.state.music_url 
       AsyncStorage.setItem(key, newMusicList)
       let temp_songs_uri = this.state.song_uri
       temp_songs_uri[this.state.selected_playlist] = newMusicList
@@ -76,6 +75,7 @@ export default class PlayerScreen extends Component {
   }
 
   render() {
+    console.log(this.state.song_uri, 'songs uri')
     return (
       <View>
         <TextInput 
